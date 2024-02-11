@@ -10,4 +10,4 @@ const recipeSchema = new mongoose.Schema({
   difficulty: String // e.g., "easy", "medium", "hard"
 });
 
-module.exports = mongoose.model('Recipe', recipeSchema);
+module.exports = mongoose.model('Recipe', recipeSchema, 'Recipe');

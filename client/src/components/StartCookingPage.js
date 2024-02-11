@@ -3,21 +3,21 @@ import MealOptions from './MealOptions'; // Ensure this file exists and is expor
 import RecipeDetails from './RecipeDetails'; // Ensure this file exists and is exported correctly
 
 function StartCookingPage() {
-  const [mealType, setMealType] = useState('');
+  const [mealTime, setMealTime] = useState('');
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   return (
     <div>
       <h1>What would you like to cook today?</h1>
-      {!mealType && (
+      {!mealTime && (
         <div>
-          <button onClick={() => setMealType('breakfast')}>Breakfast</button>
-          <button onClick={() => setMealType('lunch')}>Lunch</button>
-          <button onClick={() => setMealType('dinner')}>Dinner</button>
+          <button onClick={() => setMealTime('breakfast')}>Breakfast</button>
+          <button onClick={() => setMealTime('lunch')}>Lunch</button>
+          <button onClick={() => setMealTime('dinner')}>Dinner</button>
         </div>
       )}
-      {mealType && !selectedRecipe && (
-        <MealOptions mealType={mealType} onSelectRecipe={setSelectedRecipe} />
+      {mealTime && !selectedRecipe && (
+        <MealOptions mealTime={mealTime} onSelectRecipe={setSelectedRecipe} />
       )}
       {selectedRecipe && (
         <RecipeDetails recipe={selectedRecipe} />

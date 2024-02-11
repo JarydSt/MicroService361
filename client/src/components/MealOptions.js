@@ -1,20 +1,11 @@
 // src/components/MealOptions.js
 import React, { useState, useEffect } from 'react';
 
-function MealOptions({ mealType, onSelectRecipe }) {
+function MealOptions({ mealTime, onSelectRecipe }) {
   const [recipes, setRecipes] = useState([]);
 
-//   useEffect(() => {
-//     // Fetch recipes based on mealType
-//     // This is a placeholder. Replace with actual fetch call.
-//     fetch(`/api/recipes/${mealType}`)
-//       .then(response => response.json())
-//       .then(data => setRecipes(data))
-//       .catch(error => console.error(error));
-//   }, [mealType]);
-
   useEffect(() => {
-    fetch(`/api/recipes/${mealType}`)
+    fetch(`/api/recipes/${mealTime}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -26,20 +17,26 @@ function MealOptions({ mealType, onSelectRecipe }) {
         setRecipes(data);
       })
       .catch(error => console.error('Error fetching recipes:', error)); // Debug log
-  }, [mealType]);
+  }, [mealTime]);
 
   return (
     <div>
-      <h2>Choose a {mealType} recipe</h2>
+      <h2>Choose a {mealTime} recipe</h2>
       <ul>
-        {recipes.map(recipe => (
-          <li key={recipe._id}>
-            <button onClick={() => onSelectRecipe(recipe)}>{recipe.title}</button>
-          </li>
-        ))}
+        {recipes.length > 0 ? (
+          recipes.map(recipe => (
+            <li key={recipe._id}>
+              <button onClick={() => onSelectRecipe(recipe)}>{recipe.title}</button>
+            </li>
+          ))
+        ) : (
+          <p>No recipes found for {mealTime}.</p>
+        )}
       </ul>
     </div>
   );
+
+  
 }
 
 export default MealOptions;

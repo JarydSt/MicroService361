@@ -24,7 +24,11 @@ function RecipeDetails({ recipe }) {
         </div>
       ))}
       <h3>Instructions</h3>
-      <p>{recipe.instructions}</p>
+      <ol>
+        {recipe.instructions.map((step, index) =>
+          <li key={index}>{step}</li>
+        )}
+      </ol>
       {/* Add more structure to the instructions as needed */}
     </div>
   );

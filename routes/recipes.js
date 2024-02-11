@@ -14,27 +14,47 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET route to fetch recipes by meal type
-router.get('/:mealType', async (req, res) => {
-  try {
-    const { mealType } = req.params;
-    const recipes = await Recipe.find({ mealType: mealType });
-    res.json(recipes);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+
+// // Fetch all recipes for a specific meal time
+// router.get('/:mealTime', async (req, res) => {
+//   try {
+//     const { mealTime } = req.params;
+//     console.log('Fetching recipes for meal time:', mealTime); // Debug log
+//     const recipes = await Recipe.find({ mealTime: mealTime });
+//     console.log('Found recipes:', recipes); // Debug log
+//     res.json(recipes);
+//   } catch (error) {
+//     console.error('Error fetching recipes:', error); // Debug log
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+// // Fetch all recipes for a specific meal time
+// router.get('/:mealTime', async (req, res) => {
+//   try {
+//     const { mealTime } = req.params;
+//     console.log('Fetching recipes for meal time:', mealTime);
+//     const recipes = await Recipe.find({ mealTime: mealTime });
+//     console.log('Found recipes:', recipes); 
+//     res.json(recipes);
+//   } catch (error) {
+//     console.error('Error fetching recipes:', error); 
+//     res.status(500).json({ message: error.message });
+//   }
+// });
 
 // Fetch all recipes for a specific meal time
 router.get('/:mealTime', async (req, res) => {
   try {
     const { mealTime } = req.params;
-    console.log('Fetching recipes for meal time:', mealTime); // Debug log
+    // This will print the mealTime parameter to the console
+    console.log('Requested mealTime:', mealTime);
     const recipes = await Recipe.find({ mealTime: mealTime });
-    console.log('Found recipes:', recipes); // Debug log
+    // This will print the recipes found to the console
+    console.log(`Found ${recipes.length} recipes for mealTime ${mealTime}:`, recipes);
     res.json(recipes);
   } catch (error) {
-    console.error('Error fetching recipes:', error); // Debug log
+    console.error('Error fetching recipes for mealTime:', mealTime, error);
     res.status(500).json({ message: error.message });
   }
 });
