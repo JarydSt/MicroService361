@@ -15,7 +15,7 @@ app.use(express.json());
 const recipeRoutes = require('./routes/recipes');
 app.use('/api/recipes', recipeRoutes);
 
-console.log('Connecting to MongoDB URI:', process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));

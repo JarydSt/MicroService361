@@ -1,5 +1,6 @@
 // src/components/MealOptions.js
 import React, { useState, useEffect } from 'react';
+import './MealOptions.css';
 
 function MealOptions({ mealTime, onSelectRecipe }) {
   const [recipes, setRecipes] = useState([]);
@@ -13,24 +14,26 @@ function MealOptions({ mealTime, onSelectRecipe }) {
         return response.json();
       })
       .then(data => {
-        console.log('Recipes received:', data); // Debug log
+        console.log('Recipes received:', data); 
         setRecipes(data);
       })
-      .catch(error => console.error('Error fetching recipes:', error)); // Debug log
+      .catch(error => console.error('Error fetching recipes:', error)); 
   }, [mealTime]);
 
   return (
-    <div>
-      <h2>Choose a {mealTime} recipe</h2>
-      <ul>
+    <div className="mealOptionsContainer">
+      <h2 className="mealOptionsHeader">Choose a {mealTime} recipe</h2>
+      <ul className="recipeList">
         {recipes.length > 0 ? (
           recipes.map(recipe => (
-            <li key={recipe._id}>
-              <button onClick={() => onSelectRecipe(recipe)}>{recipe.title}</button>
+            <li key={recipe._id} className="recipeItem">
+              <button className="recipeButton" onClick={() => onSelectRecipe(recipe)}>
+                {recipe.title}
+              </button>
             </li>
           ))
         ) : (
-          <p>No recipes found for {mealTime}.</p>
+          <p className="noRecipesMessage">No recipes found for {mealTime}.</p>
         )}
       </ul>
     </div>

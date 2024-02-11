@@ -15,34 +15,6 @@ router.post('/', async (req, res) => {
 });
 
 
-// // Fetch all recipes for a specific meal time
-// router.get('/:mealTime', async (req, res) => {
-//   try {
-//     const { mealTime } = req.params;
-//     console.log('Fetching recipes for meal time:', mealTime); // Debug log
-//     const recipes = await Recipe.find({ mealTime: mealTime });
-//     console.log('Found recipes:', recipes); // Debug log
-//     res.json(recipes);
-//   } catch (error) {
-//     console.error('Error fetching recipes:', error); // Debug log
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-
-// // Fetch all recipes for a specific meal time
-// router.get('/:mealTime', async (req, res) => {
-//   try {
-//     const { mealTime } = req.params;
-//     console.log('Fetching recipes for meal time:', mealTime);
-//     const recipes = await Recipe.find({ mealTime: mealTime });
-//     console.log('Found recipes:', recipes); 
-//     res.json(recipes);
-//   } catch (error) {
-//     console.error('Error fetching recipes:', error); 
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-
 // Fetch all recipes for a specific meal time
 router.get('/:mealTime', async (req, res) => {
   try {
@@ -61,14 +33,35 @@ router.get('/:mealTime', async (req, res) => {
 
 // Additional routes 
 
-/* PUT route to update a recipe by id
+// POST route to create a new recipe
+router.post('/', async (req, res) => {
+  try {
+    const recipe = new Recipe(req.body);
+    const newRecipe = await recipe.save();
+    res.status(201).json(newRecipe);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// PUT route to update a recipe by id
 router.put('/:id', async (req, res) => {
-  // ... update logic here
+  try {
+    const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updatedRecipe);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 // DELETE route to delete a recipe by id
 router.delete('/:id', async (req, res) => {
-  // ... delete logic here
-});*/
+  try {
+    await Recipe.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Recipe deleted successfully' });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 module.exports = router;

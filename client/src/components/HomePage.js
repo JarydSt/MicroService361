@@ -1,6 +1,7 @@
 // src/components/HomePage.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './HomePage.css';
 
 function HomePage() {
   let navigate = useNavigate();

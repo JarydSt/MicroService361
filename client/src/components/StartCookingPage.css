@@ -1,0 +1,43 @@
+/* StartCookingPage.css */
+
+.startCookingPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+  }
+  
+  .startCookingPage h1 {
+    margin-bottom: 30px;
+  }
+  
+  .mealTimeButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .mealTimeButtons button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mealTimeButtons button:hover {
+    background-color: #367c39;
+  }
+  
+  .mealOptions {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  .recipeDetails {
+    width: 100%;
+    max-width: 600px;
+  }
