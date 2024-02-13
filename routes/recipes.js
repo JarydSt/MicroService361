@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/Recipe');
 
+
 // POST route to create a new recipe
 router.post('/', async (req, res) => {
   const recipe = new Recipe(req.body);
@@ -63,5 +64,16 @@ router.delete('/:id', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+// GET route to fetch all recipes
+router.get('/', async (req, res) => {
+  try {
+    const recipes = await Recipe.find({});
+    res.json(recipes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 module.exports = router;

@@ -1,0 +1,65 @@
+/* src/components/RecipeForm.css */
+
+.RecipeForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.RecipeForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.RecipeForm input[type="text"],
+.RecipeForm input[type="number"],
+.RecipeForm select,
+.RecipeForm textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.RecipeForm textarea {
+  height: 150px; /* Adjust height as needed */
+}
+
+.RecipeForm select {
+  width: calc(100% - 2px); /* Adjust width to account for border */
+}
+
+.RecipeForm button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.RecipeForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Style form labels for better readability */
+/* You can adjust these styles according to your design preferences */
+.RecipeForm label {
+  font-weight: bold;
+}
+
+/* Optional: Style form elements for better consistency */
+/* You can adjust these styles according to your design preferences */
+.RecipeForm input[type="text"],
+.RecipeForm input[type="number"],
+.RecipeForm select,
+.RecipeForm textarea,
+.RecipeForm button {
+  font-size: 16px;
+}
+
+  

@@ -1,5 +1,6 @@
 // src/components/RecipeForm.js
 import React, { useState } from 'react';
+import '../components/RecipeForm.css';
 
 function RecipeForm({ onSubmit, initialData = {} }) {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ function RecipeForm({ onSubmit, initialData = {} }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="RecipeForm"onSubmit={handleSubmit}>
       <label>
         Title:
         <input name="title" value={formData.title} onChange={handleChange} />

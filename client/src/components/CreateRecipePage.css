@@ -1,0 +1,79 @@
+/* src/styles/CreateRecipePage.css */
+.recipe-form-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .recipe-form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .recipe-form-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .recipe-form-container input[type="text"],
+  .recipe-form-container input[type="number"],
+  .recipe-form-container textarea,
+  .recipe-form-container select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-form-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .recipe-form-container button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Optional: Style select dropdown arrow */
+  .recipe-form-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h20v20H0V0z"/><path d="M7.3 9.6l2.6 3.1c.4.5 1.2.5 1.6 0l2.6-3.1c.3-.4.1-1-.4-1.2H7.7c-.5 0-.7.7-.4 1.2z"/></svg>');
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+  }
+
+  .overlay {
+    position: fixed; /* Use fixed positioning */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .messageBox {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }

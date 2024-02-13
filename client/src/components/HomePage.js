@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div className="homePage">
       <button onClick={handleStartCooking}>Start Cooking</button>
-      <button onClick={() => navigate('/favorites')}>Favorites</button>
+      <button onClick={() => navigate('/recipe-book')}>Recipe Book</button>
       <button onClick={() => navigate('/create-recipe')}>Create Recipe</button>
     </div>
   );
